@@ -23,18 +23,17 @@ with app.app_context():
     # get stop words, excluding comments, filter out empty words
     stop_words = set(spark
                      .textFile('static/corpus/stop-words.txt')
-                     .flatMap(lambda line: '' if line and line[0] == '#' else line.lower())
-                     .filter(lambda word: word != '')
+                     .map(lambda line: '' if line and line[0] == '#' else line.lower())
+                     .filter(lambda word: word)
                      .collect())
 
-    # remove punctuation and lowercasify, filter out stop words, then count words
+    # remove punctuation and lowercasify, filter out stop words and emtpy strings, then count words
     word_counts = words \
         .map(lambda word: re.sub(r'[^\w\s]', '', word).lower()) \
-        .filter(lambda word: word not in stop_words) \
+        .filter(lambda word: word not in stop_words and word) \
         .map(lambda word: (word, 1)) \
         .reduceByKey(lambda a, b: a + b) \
-        .sortBy(lambda x: x[1], ascending=False) \
-        .collect()
+        .top(100, key=lambda x: x[1])
 
 
 @app.route('/')
