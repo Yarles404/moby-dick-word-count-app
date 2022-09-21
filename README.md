@@ -24,8 +24,10 @@ Pretty sure any version of Python 3.6+ will work, but don't quote me on that.
 Additionally, you will need Java 8+ installed and have JAVA_HOME environment variable set.
 I used OpenJDK 8. You can download it from [here](https://adoptopenjdk.net/).
 
-Before installing the requirements, I recommend using a virtual environment via [pipenv](https://pypi.org/project/pipenv/).
-Once you have Python and Java installed, you can install the requirements with `pip install -r requirements.txt`.
+
+Once you have Python and Java installed, you can install the requirements.
+I recommend using a virtual environment via [pipenv](https://pypi.org/project/pipenv/).
+If you're using pipenv, use `pipenv install -r requirements.txt`. Otherwise, use `pip install -r requirements.txt`.
 `cd` into the app/ directory and run `python app.py`.
 You should see some output in your console. Navigate to [http://localhost:5000/](http://localhost:5000) to see the application.
 
