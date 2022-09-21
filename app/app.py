@@ -23,13 +23,13 @@ with app.app_context():
     # get stop words, excluding comments, filter out empty words
     stop_words = set(spark
                      .textFile('static/corpus/stop-words.txt')
-                     .flatMap(lambda line: '' if line[0] == '#' else line.lower())
+                     .flatMap(lambda line: '' if line and line[0] == '#' else line.lower())
                      .filter(lambda word: word != '')
                      .collect())
 
     # remove punctuation and lowercasify, filter out stop words, then count words
     word_counts = words \
-        .map(lambda word: re.sub(r'[^\P{P}-]+', '', word).lower()) \
+        .map(lambda word: re.sub(r'[^\w\s]', '', word).lower()) \
         .filter(lambda word: word not in stop_words) \
         .map(lambda word: (word, 1)) \
         .reduceByKey(lambda a, b: a + b) \
@@ -40,7 +40,7 @@ with app.app_context():
 @app.route('/')
 @cache.cached()
 def wordcount():
-    return render_template('word_count.html')
+    return render_template('word_count.html', word_counts=word_counts)
 
 
 if __name__ == '__main__':
