@@ -4,8 +4,8 @@ from pyspark import SparkContext, SparkConf
 import re
 
 config = {
-    'DEBUG': True,          # some Flask specific configs
-    'CACHE_TYPE': 'SimpleCache',  # Flask-Caching related configs
+    'DEBUG': True,
+    'CACHE_TYPE': 'SimpleCache',
     'CACHE_DEFAULT_TIMEOUT': 300
 }
 
