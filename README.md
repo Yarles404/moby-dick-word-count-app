@@ -29,7 +29,7 @@ I used OpenJDK 8. You can download it from [here](https://adoptopenjdk.net/).
 Once you have Python and Java installed, you can install the requirements.
 I recommend using a virtual environment via [pipenv](https://pypi.org/project/pipenv/).
 If you're using pipenv, use `pipenv install -r requirements.txt`. Otherwise, use `pip install -r requirements.txt`.
-`cd` into the app/ directory and run `python app.py`.
+`cd` into the app/ directory and run `py app.py`.
 You should see some output in your console. Navigate to [http://localhost:5000/](http://localhost:5000) to see the application.
 
 ### Docker
