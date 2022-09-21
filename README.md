@@ -4,7 +4,7 @@ This is a simple Flask application that displays the word counts of Moby Dick.
 On startup, I use PySpark to produce the word counts. There is some cleaning involved, including removal of comments in stop-words.txt and empty strings from mobydick.txt.
 
 Since stop-words.txt is relatively small, I load it in as a set. I then use the set to filter out the stop words from the word counts.
-All words were converted to their lowercase veresion.
+All words were converted to their lowercase version.
 
 Then, the application starts with a single page at /
 
