@@ -22,7 +22,6 @@ Pretty sure any version of Python 3.6+ will work, but don't quote me on that.
 3.10.2 is a safe bet, as that's what I'm using. You can download it from [here](https://www.python.org/downloads/).
 
 Additionally, you will need Java 8+ installed and have JAVA_HOME environment variable set.
-You can download it from [here](https://www.oracle.com/java/technologies/javase-downloads.html).
 I used OpenJDK 8. You can download it from [here](https://adoptopenjdk.net/).
 
 Before installing the requirements, I recommend using a virtual environment via [pipenv](https://pypi.org/project/pipenv/).
